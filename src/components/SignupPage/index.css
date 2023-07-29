@@ -1,0 +1,60 @@
+h1{
+    font-weight: 600;
+    font-size:40px;
+    color: rgb(87, 5, 25);
+}
+input, select{
+    height: 25px;
+    width:170px;
+    background-color: azure;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-left: 6px;
+
+}
+input:hover{
+    border: none;
+    background-color: rgb(166, 253, 253);
+    border-color: none;
+    border: 0px solid rgb(243, 209, 209);
+}
+option{
+    color: brown;
+    background-color: black;
+    font-family: monospace;
+}
+.whole{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://images.ctfassets.net/co0pvta7hzrh/1HOajBVHsh7xunfUnjpDNE/c94d271e8f90a6bf6016fc1d275d7a74/e_commerce_registration_form_template_thumb.png");
+   background-size: cover;
+   height: 100vh;
+}
+label{
+    font-weight: 400;
+    font-size: 20px;
+    color:black;
+    font-family: serif;
+}
+.input-con{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+button{
+    background-color: rgb(200, 250, 20);
+    height: 40px;
+    width: 120px;
+    color:rgb(37, 29, 5);
+    font-family: "Gill Sans";
+    font-weight: 300;
+    font-size: large;
+    border: none;
+    border-radius: 7px;
+    margin-top: 20px;
+}
