@@ -2,30 +2,47 @@
 import React, { useEffect, useState } from 'react';
 import "./index.css"
 const MovieList = () => {
+
   const [movies, setMovies] = useState([]);
+const defaultResponseHeaders = new Headers({
+  "Server": "JSON-RPC 2.0 Server",
+  "Allow": "OPTIONS, POST",
+  "Cache-Control": "no-store",
+  "Content-Type": "application/json; charset=UTF-8",
+  "Content-Language": "en-US",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "OPTIONS, POST",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization"
+});
 
   useEffect(() => {
     // Make a POST request to fetch movie data from the API
-
-    //info is object about detials you have asked
-      const info={category: "movies",
-
-      language: "kannada", genre: "all",
-      sort: "voting",}
-
-      const option={
-        method:"POST",
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body:JSON.stringify(info),    //make it string format
-      }
-      fetch("https://hoblist.com/api/movieList",option)
-     .then((response)=>response.json()).then((data)=>{
-      setMovies(data.result)  // setting movie details into movies 
-      console.log(data.result)})
-     .catch((error) => console.error('Error:', error))
-          
+    fetch('https://hoblist.com/api/movieList', {
+      mode:'no-cors',
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+         "Content-Type": "application/json",
+      "Authorization": "Bearer 29fea2ddebd08ed73a0fe7952968ca60b9e56e678a367578825b6c4c8824d248",
+      },
+      body: JSON.stringify({
+        category: 'movies',
+        language: 'kannada',
+        genre: 'all',
+        sort: 'voting',
+      }),
+    })
+    .then(function (response) {
+      
+      return response.json();
+  
+  }).then(data => {
+        // Work with JSON data here
+        console.log(data);
+      }).catch(err => {
+        // Do something for an error here
+        console.log("Error Reading data " + err);
+      });
   }, []);
 
   return (
@@ -60,6 +77,6 @@ const MovieList = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default MovieList;
